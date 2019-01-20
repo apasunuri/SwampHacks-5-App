@@ -4,5 +4,6 @@
     <string name="_00_00_added_to_your_balance">$00.00 Added to your Balance</string>
     <string name="camera">Camera</string>
     <string name="todo">TODO</string>
+    <string name="store_amount">Store Amount</string>
     <string name="title_activity_financeviewer">financeviewer</string>
 </resources>
