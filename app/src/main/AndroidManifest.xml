@@ -15,7 +15,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".getfinance"
-            android:label="@string/title_activity_getfinance"
+            android:label="Receipt Budgeter"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
@@ -27,6 +27,7 @@
         </activity>
         <activity
             android:name=".Camera"
+            android:label = "Receipt Budgeter"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
         </activity>
@@ -37,6 +38,7 @@
 
         <activity
             android:name=".financeviewer"
+            android:label="Receipt Budgeter"
             android:parentActivityName=".Camera"
             tools:ignore="ExtraText"
             android:configChanges="orientation"

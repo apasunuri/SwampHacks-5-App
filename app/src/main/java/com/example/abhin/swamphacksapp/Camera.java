@@ -53,12 +53,12 @@ public class Camera extends AppCompatActivity {
 
                         Frame frame = new Frame.Builder().setBitmap(bitmap).build();
                         SparseArray<TextBlock> items = textRecognizer.detect(frame);
-                        ArrayList<Double> prices = new ArrayList<Double>();
                         StringBuilder stringBuilder = new StringBuilder();
                         if(items.size() == 0) {
                             orderAdded.setText("Error during Scanning. Please Try Again.");
                         }
                         else {
+                            ArrayList<Double> prices = new ArrayList<Double>();
                             for(int i = 0; i < items.size(); i++) {
                                 TextBlock item = items.valueAt(i);
                                 stringBuilder.append(item.getValue());
@@ -67,6 +67,13 @@ public class Camera extends AppCompatActivity {
                             String[] values = stringBuilder.toString().split("\\r?\\n");
                             for(int i = 0; i < values.length; i++) {
                                 String temp = values[i];
+                                if(temp.indexOf('.') == -1)
+                                    continue;
+                                if(temp.length() == 5 && temp.charAt(2) == ',') {
+                                    char[] charTemp = temp.toCharArray();
+                                    charTemp[2] = '.';
+                                    temp = String.valueOf(charTemp);
+                                }
                                 if(isDouble(temp)) {
                                     prices.add(Double.parseDouble(temp));
                                 }
