@@ -17,6 +17,8 @@ import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 
+import java.util.ArrayList;
+
 public class Camera extends AppCompatActivity {
     Button camera;
     Button financialButton;
@@ -24,6 +26,8 @@ public class Camera extends AppCompatActivity {
     ImageView receiptImage;
     TextView orderAdded;
     Bitmap bitmap;
+    public static ArrayList<Double> spendings = new ArrayList<Double>();
+    double totalPrice = 0;
     private static final int CAM_REQUEST=1313;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,28 +53,59 @@ public class Camera extends AppCompatActivity {
 
                         Frame frame = new Frame.Builder().setBitmap(bitmap).build();
                         SparseArray<TextBlock> items = textRecognizer.detect(frame);
+                        ArrayList<Double> prices = new ArrayList<Double>();
                         StringBuilder stringBuilder = new StringBuilder();
                         if(items.size() == 0) {
                             orderAdded.setText("Error during Scanning. Please Try Again.");
                         }
-                        for(int i = 0; i < items.size(); i++) {
-                            TextBlock item = items.valueAt(i);
-                            if(item.getValue().charAt(0) != '$')
+                        else {
+                            for(int i = 0; i < items.size(); i++) {
+                                TextBlock item = items.valueAt(i);
+                                stringBuilder.append(item.getValue());
+                                stringBuilder.append('\n');
+                            }
+                            String[] values = stringBuilder.toString().split("\\r?\\n");
+                            for(int i = 0; i < values.length; i++) {
+                                String temp = values[i];
+                                if(isDouble(temp)) {
+                                    prices.add(Double.parseDouble(temp));
+                                }
+                            }
+                            if(prices.size() == 0) {
                                 orderAdded.setText("Error during Scanning. Please Try Again");
-                            stringBuilder.append(item.getValue());
-                            stringBuilder.append('\n');
+                            }
+                            else {
+                                for(int i = 0; i < prices.size(); i++) {
+                                    if(prices.get(i) > totalPrice) {
+                                        totalPrice = prices.get(i);
+                                    }
+                                }
+                            }
+                            orderAdded.setText("$" + totalPrice + " has been added to your Spendings");
+                            //Log.i("Text ", totalPrice + "has been added to your Spendings");
                         }
-                        //orderAdded.setText(stringBuilder.toString());
-                        Log.i("Text ", stringBuilder.toString());
                     }
                     else {
                         Log.i("Text Recognition", "is not Operational");
                     }
+                    if(totalPrice > 0)
+                        spendings.add(totalPrice);
+                    getfinance.finalResult -= totalPrice;
                 }
             }
         });
 
     }
+    public static boolean isDouble(String s) {
+        try {
+            Double.parseDouble(s);
+            return true;
+        }
+        catch(NumberFormatException ex) {
+            return false;
+        }
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".getfinance">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        android:id="@+id/"
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/calcButton"
+            style="@android:style/Widget.Button.Toggle"
+            android:layout_width="183dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="106dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="126dp"
+            android:background="@drawable/round_box"
+            android:fontFamily="serif"
+            android:text="Calculate"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/contBtn"
+            style="@android:style/Widget.Button.Toggle"
+            android:layout_width="183dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="108dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginBottom="59dp"
+            android:background="@drawable/round_box"
+            android:fontFamily="serif"
+            android:text="Continue"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/annualIncome"
+            android:layout_width="304dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="43dp"
+            android:ems="10"
+            android:hint="Enter your annual income"
+            android:inputType="number"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/DollarSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="130dp"
+            android:text="$"
+            android:textColor="#A9A9A9"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="169dp"
+            android:layout_marginEnd="80dp"
+            android:text="Recommended budgets are based off of statistics from the national government website"
+            android:textAlignment="center"
+            android:textColor="#A9A9A9" />
+
+        <TextView
+            android:id="@+id/finalBudget"
+            android:layout_width="301dp"
+            android:layout_height="232dp"
+            android:layout_above="@+id/calcButton"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="34dp"
+            android:layout_marginTop="68dp"
+            android:layout_marginEnd="77dp"
+            android:layout_marginBottom="48dp"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

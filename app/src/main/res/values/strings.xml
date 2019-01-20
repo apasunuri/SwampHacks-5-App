@@ -6,4 +6,12 @@
     <string name="todo">TODO</string>
     <string name="store_amount">Store Amount</string>
     <string name="title_activity_financeviewer">financeviewer</string>
+    <string name="please_scan_your_receipt">Please Scan your Receipt</string>
+    <string name="view_spendings">View Spendings</string>
+    <string name="title_activity_getfinance">getfinance</string>
+    <string name="dollar">$</string>
+    <string name="continue_button">Continue</string>
+    <string name="calculate">Calculate</string>
+    <string name="recommended_budgets_are_based_off_of_statistics_from_the_national_government_website">Recommended budgets are based off of statistics from the national government website</string>
+    <string name="enter_your_annual_income">Enter your annual income</string>
 </resources>
