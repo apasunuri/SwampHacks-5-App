@@ -29,6 +29,7 @@ public class Camera extends AppCompatActivity {
         storeAmount = findViewById(R.id.storeAmount);
 
         camera.setOnClickListener(new btnPhotoClicker());
+        financialButton.setOnClickListener(new btnfinancialClicker());
 
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -45,6 +46,14 @@ public class Camera extends AppCompatActivity {
         public void onClick(View v) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(intent, CAM_REQUEST);
+        }
+    }
+
+    class btnfinancialClicker implements Button.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            Intent i = new Intent(getApplicationContext(), financeviewer.class);
+            startActivity(i);
         }
     }
 }
